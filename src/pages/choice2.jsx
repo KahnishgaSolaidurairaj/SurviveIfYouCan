@@ -62,11 +62,12 @@ export default function Choice2(){
             />  
              )}
             {textDone && (
-                <div className="choices">
+                <div className="door-container">
                     { stage === 1 &&
                         current.choices.map((choice, index) => (
                             <button
                                 key={index}
+                                className="door-btn"
                                 onClick={() => {
                                     setTextDone(false);
                                     setStage(choice.next);
@@ -78,7 +79,7 @@ export default function Choice2(){
                                     alt={choice.label} 
                                     className="door-img" 
                                 />
-                                {choice.label}
+                                <span className="door-label">{choice.label}</span>
                             </button>
                     ))}
 

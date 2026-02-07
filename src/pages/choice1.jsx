@@ -23,7 +23,7 @@ export default function Choice1(){
             audioRef.current.volume = 0.5;
         } else {
           // DANA EDIT HERE!!!!
-            audioRef.current = new Audio("/audios/laughter.mp3");
+            audioRef.current = new Audio("/audios/witchLaughter.mp3");
             audioRef.current.loop = false; // Laughter plays once
             audioRef.current.volume = 0.8; // Make laughter louder/scarier
         }
@@ -77,6 +77,7 @@ export default function Choice1(){
     const current = story[stage];
 
     const continueClicked = async () => {
+
         navigate('/choice2')
     }
 

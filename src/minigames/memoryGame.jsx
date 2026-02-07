@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./memoryGame.css"; 
 import { useNavigate } from "react-router-dom";
+import Typewriter from "../components/Typewriter.jsx";
 //example of how to import sound effect you want to use
 // import mySoundFile from "../sounds/welcome.mp3"; // make sure this path is correct
 
@@ -14,7 +15,16 @@ export default function MemoryGame(){
     //     const audio = new Audio(mySoundFile);
     //     audio.play();
     // }, []);
+    const story = {
+        1: {
+            text: "You chose the wrong door! Complete the game to proceed!",
+            choices: [
+            { next: 2 },
+            ]
+        },
 
+        2: 
+    }
 
     const shuffledColors = [...colors, ...colors].sort(() => Math.random() - 0.5);
 
@@ -26,6 +36,11 @@ export default function MemoryGame(){
         matched: false,
         }))
     );
+    
+    const [stage, setStage] = useState(1);
+    const [textDone, setTextDone] = useState(false);
+
+    const current = story[stage];
 
     //keep track of cards chosen
     const [firstCard, setFirstCard] = useState(null);
@@ -80,12 +95,10 @@ export default function MemoryGame(){
         }
     }, [firstCard, secondCard]);
 
-    useEffect(() => {
-        if (cards.every(card => card.matched)) {
-            navigate("/choice2");
-        }
-    }, [cards, navigate]); // run whenever cards change
-
+    //navigate back once all cards matched
+    const continueClicked = async () => {
+        navigate('/choice2')
+    }
 
     //reset cards if not a match
     const resetTurn = () => {
@@ -97,7 +110,11 @@ export default function MemoryGame(){
     return(
         <div>
             <div>
-                <h1>Wrong Door! Complete game to proceed!</h1>
+               <Typewriter
+                    key={stage}
+                    text={current.text}
+                    onComplete={() => setTextDone(true)}
+            />  
             </div>     
             <div className="memory-game">
                 {cards.map((card) => (
@@ -109,6 +126,29 @@ export default function MemoryGame(){
                     </div>
                 ))}
             </div>
+                {textDone && (
+                    <div className="choices">
+                        { stage === 1 &&
+                            current.choices.map((choice, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => {
+                                        setTextDone(false);
+                                        setStage(choice.next);
+                                    }}
+                                    >
+                                    {choice.label}
+                                </button>
+                        ))}
+                        {stage === 1 && cards.every(card => card.matched) && textDone && (
+                            <button
+                                onClick={ continueClicked}
+                            >
+                                Continue
+                            </button>
+                        )}
+                    </div>
+                )}
         </div> 
     );
 }

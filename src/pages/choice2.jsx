@@ -5,6 +5,23 @@ import "../App.css";
 
 export default function Choice2(){
 
+    useEffect(() => {
+        const screamAudio = new Audio("/audios/leftRoomNoise.mp3")    
+        screamAudio.volume = 0.6 
+    
+        // Play the audio
+        screamAudio.play().catch((error) => {
+        // This catches errors if the browser blocks autoplay
+        console.log("Audio autoplay blocked:", error)
+        })
+
+        // Cleanup: Stop sound if user leaves page quickly
+        return () => {
+        screamAudio.pause()
+        screamAudio.currentTime = 0
+        }
+    }, [])
+
     //correct choice, go to next page/question
     const leftDoorChosen = async () => {
         navigate('/choice3')
@@ -48,6 +65,22 @@ export default function Choice2(){
         }
     }, [stage]);
 
+    useEffect(() => {
+        if (stage === 7) {
+            const leftDoorAudio = new Audio("/audios/creakyDoor.mp3");
+            leftDoorAudio.volume = 0.6;
+
+            leftDoorAudio.play().catch(err => {
+                console.log("Left door audio blocked:", err);
+            });
+
+            return () => {
+                leftDoorAudio.pause();
+                leftDoorAudio.currentTime = 0;
+            };
+        }
+    }, [stage]);
+    
     const continueClicked = async () => {
         navigate('/choice2')
     }

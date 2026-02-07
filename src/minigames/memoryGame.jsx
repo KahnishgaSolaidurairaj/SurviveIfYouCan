@@ -9,12 +9,6 @@ const colors = ["red","orange", "yellow", "green", "blue", "purple"];
 
 export default function MemoryGame(){
     const navigate = useNavigate();
-
-    //for sound effect
-    // useEffect(() => {
-    //     const audio = new Audio(mySoundFile);
-    //     audio.play();
-    // }, []);
     const story = {
         1: {
             text: "You chose the wrong door! Complete the game to proceed!",
@@ -44,36 +38,28 @@ export default function MemoryGame(){
 
     const current = story[stage];
 
-    //keep track of cards chosen
     const [firstCard, setFirstCard] = useState(null);
     const [secondCard, setSecondCard] = useState(null);
     const [disableAll, setDisableAll] = useState(false);
 
-    //when a card is clicked, handle
     const handleClick = (card) => {
         if (disableAll || card.flipped || card.matched) return;
 
-        //checking which card was flipped
         const newCards = cards.map((c) =>
             c.id === card.id ? { ...c, flipped: true } : c
         );
         setCards(newCards);
 
-        //if not first card set
         if (!firstCard) {
             setFirstCard(card);
-        } 
-        //if second and not first card, set
-        else if (!secondCard) {
+        } else if (!secondCard) {
             setSecondCard(card);
             setDisableAll(true);
         }
     };
 
-      //check if the two cards are a match
       useEffect(() => {
         if (firstCard && secondCard) {
-            //if the cards are a match
             if (firstCard.color === secondCard.color) {
                 setCards((prev) =>
                     prev.map((c) =>
@@ -92,17 +78,15 @@ export default function MemoryGame(){
                         )
                     );
                 resetTurn();
-                }, 1000); //flip back after 1s
+                }, 1000); 
             }
         }
     }, [firstCard, secondCard]);
 
-    //navigate back once all cards matched
     const continueClicked = async () => {
         navigate('/choice2')
     }
 
-    //reset cards if not a match
     const resetTurn = () => {
         setFirstCard(null);
         setSecondCard(null);
@@ -119,6 +103,7 @@ export default function MemoryGame(){
     }, [allMatched, stage]);
 
     return(
+        <div className="scene choice-scene">
         <div>
             <div>
                 {(stage === 1 || stage === 2) && (
@@ -141,19 +126,6 @@ export default function MemoryGame(){
             </div>
                 {textDone && (
                     <div className="choices">
-                        {/* { stage === 1 &&
-                            current.choices.map((choice, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => {
-                                        setTextDone(false);
-                                        setStage(choice.next);
-                                    }}
-                                    >
-                                    {choice.label}
-                                </button>
-                        ))} */}
-
                         {stage === 2 && textDone && (
                             <button
                                 onClick={ continueClicked}
@@ -164,5 +136,6 @@ export default function MemoryGame(){
                     </div>
                 )}
         </div> 
+        </div>
     );
 }

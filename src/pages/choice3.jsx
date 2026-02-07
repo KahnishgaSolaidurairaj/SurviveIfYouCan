@@ -13,7 +13,7 @@ export default function Choice3(){
     const story = {
         1: {
             text:
-            "You see your friend's scarf near the stairs (going up).\n\n" +
+            "You see your friend's scarf near the stairs.\n\n" +
             "Are you going up the stairs or down?",
             background: { type: "image", src: "/images/stairsQ.png" },
             choices: [

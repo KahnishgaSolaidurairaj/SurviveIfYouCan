@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react" // 1. Import useEffect
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Typewriter from "../components/Typewriter"
 import "../App.css"
@@ -34,15 +34,11 @@ function Start() {
 
   return (
     <div className="scene start-scene">
-
-      {/* Background image */}
       <img
         className="scene-bg"
         src="/images/intro.jpg"
         alt="Haunted House"
       />
-
-      {/* Overlay content */}
       <div className="scene-content">
         <Typewriter
           text={introText}

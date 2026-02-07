@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react" // 1. Import useEffect
 import { useNavigate } from "react-router-dom"
 import Typewriter from "../components/Typewriter"
 import "../App.css"
@@ -7,12 +7,30 @@ function Start() {
   const navigate = useNavigate()
   const [textDone, setTextDone] = useState(false)
 
+  useEffect(() => {
+    const screamAudio = new Audio("/audios/scream.mp3")    
+    screamAudio.volume = 0.6 
+  
+    // Play the audio
+    screamAudio.play().catch((error) => {
+      // This catches errors if the browser blocks autoplay
+      console.log("Audio autoplay blocked:", error)
+    })
+
+    // Cleanup: Stop sound if user leaves page quickly
+    return () => {
+      screamAudio.pause()
+      screamAudio.currentTime = 0
+    }
+  }, [])
+
   const introText =
-    "Your friends took you to a Haunted House, but they got scared and ran ahead of you.\n\n" +
-    "Effectively ditching you.\n\n" +
-    "But you are a good friend and will find them before leaving the haunted house.\n\n" +
-    "The door slammed shut behind you.\n\n" +
-    "Now you're alone."
+    "The scream wasn't part of the tour.\n\n" +
+    "Your friend panicked. They ran ahead.\n\n" +
+    "They left you.\n\n" +
+    "The front door locks with a heavy thud.\n\n" +
+    "You could hide... but you promised to stick together.\n\n" +
+    "Time to find them."
 
   return (
     <div className="scene start-scene">
@@ -34,7 +52,7 @@ function Start() {
         {textDone && (
           <button
             className="choice-btn"
-            onClick={() => navigate("/choice2")}
+            onClick={() => navigate("/choice1")}
           >
             Start your story →
           </button>

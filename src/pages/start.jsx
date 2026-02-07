@@ -26,11 +26,10 @@ function Start() {
 
   const introText =
     "The scream wasn't part of the tour.\n\n" +
-    "Your friend panicked. They ran ahead.\n\n" +
+    "Terrified, your friend bolted into the darkness of the Haunted House. \n\n" +
     "They left you.\n\n" +
-    "The front door locks with a heavy thud.\n\n" +
     "You could hide... but you promised to stick together.\n\n" +
-    "Time to find them."
+    "Can you surive this?."
 
   return (
     <div className="scene start-scene">

@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import Start from './pages/start.jsx'
 import './App.css'
+import Typewriter from "./components/Typewriter";
 
 function App() {
   return (

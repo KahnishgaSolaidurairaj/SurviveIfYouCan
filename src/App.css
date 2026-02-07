@@ -40,3 +40,9 @@
 .read-the-docs {
   color: #888;
 }
+
+.typewriter {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}

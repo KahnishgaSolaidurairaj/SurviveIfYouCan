@@ -88,15 +88,16 @@ export default function Choice1(){
           </div>
         )}
 
-        {textDone && stage !== 1 && (
-          <button
-            className="choice-btn"
-            onClick={() => navigate("/choice2")}
-          >
-            Continue →
-          </button>
-        )}
-      </div>
-    </div>
-  )
+                            {stage !== 1 && textDone && (
+                                <button
+                                    onClick={continueClicked}
+                                >
+                                    Continue
+                                </button>
+                            )}
+                        </div>
+                    )}
+            </div>
+        </div>
+    );
 }

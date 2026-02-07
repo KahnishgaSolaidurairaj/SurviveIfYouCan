@@ -190,3 +190,59 @@ button:active {
   50% { text-shadow: 0 0 5px var(--accent-color); opacity: 0.8; }
   100% { text-shadow: 0 0 15px var(--highlight); opacity: 1; }
 }
+
+/* =========================================
+   8. DOOR SELECTION STYLES (FIXED)
+   ========================================= */
+.door-container {
+  display: flex;
+  flex-direction: row; /* Force side-by-side */
+  justify-content: center;
+  align-items: center;
+  gap: 4rem; /* Space between doors */
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.door-btn {
+  display: flex;
+  flex-direction: column; /* Image top, text bottom */
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s;
+}
+
+/* Make images BIGGER */
+.door-img {
+  width: 300px;  /* Changed from 150px to 300px */
+  height: 450px; /* Changed from 250px to 450px */
+  object-fit: cover;
+  border: 4px solid #333;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+  transition: all 0.3s ease;
+  filter: grayscale(80%) brightness(60%);
+}
+
+.door-btn:hover .door-img {
+  filter: grayscale(0%) brightness(110%);
+  border-color: var(--highlight);
+  box-shadow: 0 0 30px var(--highlight);
+  transform: scale(1.05);
+}
+
+.door-label {
+  margin-top: 1rem;
+  font-family: var(--font-header);
+  font-size: 3rem; /* Bigger font */
+  color: #666;
+  text-shadow: 2px 2px 0 #000;
+  transition: color 0.3s;
+}
+
+.door-btn:hover .door-label {
+  color: var(--highlight);
+  text-shadow: 0 0 15px var(--highlight);
+}

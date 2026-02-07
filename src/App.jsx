@@ -2,6 +2,7 @@ import { Routes, Route, Link, useNavigate } from 'react-router-dom'
 import Start from './pages/start.jsx'
 import IntroCutScene from './scenes/cutscenes/IntroCutScene'
 import './App.css'
+import Typewriter from "./components/Typewriter";
 
 function App() {
   const navigate = useNavigate()

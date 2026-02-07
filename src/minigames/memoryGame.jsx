@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./MemoryGame.css"; 
+import "./memoryGame.css"; 
 import { useNavigate } from "react-router-dom";
 //example of how to import sound effect you want to use
 // import mySoundFile from "../sounds/welcome.mp3"; // make sure this path is correct

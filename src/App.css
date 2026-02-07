@@ -1,20 +1,12 @@
-/* =========================================
-   0. IMPORT FONTS (Google Fonts)
-   ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap');
 
-/* =========================================
-   1. GLOBAL RESET & VARIABLES
-   ========================================= */
 :root {
-  --bg-color: #080808;        /* Almost Black */
-  --text-color: #dcdcdc;      /* Dirty White */
+  --bg-color: #080808;
+  --text-color: #dcdcdc; 
   
-  /* THE NEW REDS - More "Rust" and "Crimson", less "Laser" */
-  --accent-color: #4a0404;    /* Dried Blood (Dark) */
-  --highlight: #b91d1d;       /* Fresh Blood (Bright but gritty) */
-  
-  /* FONTS */
+  --accent-color: #4a0404; 
+  --highlight: #b91d1d;  
+
   --font-header: 'Creepster', display;
   --font-body: 'Special Elite', monospace;
 }
@@ -28,7 +20,7 @@ body {
   padding: 0;
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: var(--font-body); /* Default to the typewriter look */
+  font-family: var(--font-body);
   overflow: hidden; 
   -webkit-font-smoothing: antialiased;
 }
@@ -40,10 +32,6 @@ body {
   padding: 0;
 }
 
-/* =========================================
-   2. CRT & ATMOSPHERE EFFECTS
-   ========================================= */
-/* Scanlines overlay */
 body::before {
   content: " ";
   display: block;
@@ -66,7 +54,6 @@ body::before {
   pointer-events: none; 
 }
 
-/* Vignette (Dark corners) */
 body::after {
   content: " ";
   display: block;
@@ -80,9 +67,6 @@ body::after {
   pointer-events: none;
 }
 
-/* =========================================
-   3. SCENE & LAYOUT
-   ========================================= */
 .scene {
   position: relative;
   width: 100vw;
@@ -100,9 +84,9 @@ body::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.3; /* Darker background so text pops */
+  opacity: 0.3; 
   z-index: 0;
-  filter: sepia(40%) contrast(110%) brightness(80%); /* Old photo look */
+  filter: sepia(40%) contrast(110%) brightness(80%); 
 }
 
 .scene-content {
@@ -111,17 +95,12 @@ body::after {
   max-width: 800px;
   width: 90%;
   text-align: center;
-  /* subtle dark gradient behind text for readability */
   background: radial-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.4)); 
   padding: 3rem;
   border-radius: 4px;
-  border: 1px dashed #333; /* Dashed line looks like a cut-out note */
+  border: 1px dashed #333;
 }
 
-/* =========================================
-   4. TYPOGRAPHY
-   ========================================= */
-/* THE TITLE FONT */
 h1 {
   font-family: var(--font-header);
   font-size: 4rem;
@@ -129,10 +108,9 @@ h1 {
   text-shadow: 4px 4px 0px #000;
   margin-bottom: 0.5rem;
   letter-spacing: 2px;
-  transform: rotate(-2deg); /* Slightly crooked */
+  transform: rotate(-2deg);
 }
 
-/* THE TYPEWRITER TEXT */
 .typewriter {
   font-family: var(--font-body);
   font-size: 1.6rem;
@@ -144,9 +122,6 @@ h1 {
   text-align: left;
 }
 
-/* =========================================
-   5. BUTTONS & CHOICES
-   ========================================= */
 .choices {
   display: flex;
   flex-direction: column;
@@ -158,7 +133,7 @@ button {
   background: rgba(0, 0, 0, 0.6);
   border: 2px solid #555;
   color: #ccc;
-  font-family: var(--font-body); /* Dirty Typewriter font */
+  font-family: var(--font-body);
   font-size: 1.3rem;
   padding: 12px 25px;
   cursor: pointer;
@@ -178,9 +153,6 @@ button:active {
   transform: scale(0.95);
 }
 
-/* =========================================
-   6. VIDEO & INTRO
-   ========================================= */
 .fullscreen {
   position: fixed;
   inset: 0;
@@ -213,10 +185,6 @@ button:active {
   animation: pulse 3s infinite;
 }
 
-/* =========================================
-   7. ANIMATIONS
-   ========================================= */
-/* Gentle pulse for the title */
 @keyframes pulse {
   0% { text-shadow: 0 0 15px var(--highlight); opacity: 1; }
   50% { text-shadow: 0 0 5px var(--accent-color); opacity: 0.8; }

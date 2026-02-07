@@ -24,16 +24,14 @@ export default function Choice4(){
             text:
             "You leave the haunted house alone.\n\n" +
             "Your friend was still inside.\n\n" +
-            "You will always wonder what might have happened.",
-            choices: [{label: "start over", next: 0}]
+            "You will always wonder what might have happened."
         },
 
         4: {
             text:
             "Behind the second door, you find your friend.\n\n" +
             "You have saved them. But you didnt do this all for the recognition.\n\n" +
-            "It was for the friendship 🎉",
-            choices: [ {label: "start over", next: 0}]
+            "It was for the friendship 🎉"
         },
     }
 

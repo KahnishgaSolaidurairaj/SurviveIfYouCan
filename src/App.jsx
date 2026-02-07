@@ -10,6 +10,7 @@ import Choice4 from './pages/choice4.jsx'
 import MemoryGame from './minigames/memoryGame.jsx'
 import JumpScare from './pages/jumpScare.jsx'
 import AfterJumpScare from './pages/afterJumpScare.jsx'
+import EndScreen from './pages/end.jsx';
 
 function App() {
   const navigate = useNavigate()
@@ -31,6 +32,7 @@ function App() {
         <Route path="/memoryGame" element={<MemoryGame />} />
         <Route path="/jumpScare" element={<JumpScare />} />
         <Route path="/afterJumpScare" element={<AfterJumpScare />} />
+        <Route path="/end" element={<EndScreen />} />
       </Routes>
     </>
   )

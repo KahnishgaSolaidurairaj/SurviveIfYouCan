@@ -9,6 +9,23 @@ export default function Choice3(){
 
     const navigate = useNavigate();
 
+    useEffect(() => {
+    const screamAudio = new Audio("/audios/haunted_ambience.mp3")    
+    screamAudio.volume = 0.6 
+  
+    // Play the audio
+    screamAudio.play().catch((error) => {
+      // This catches errors if the browser blocks autoplay
+      console.log("Audio autoplay blocked:", error)
+    })
+
+    // Cleanup: Stop sound if user leaves page quickly
+    return () => {
+      screamAudio.pause()
+      screamAudio.currentTime = 0
+    }
+  }, [])
+
 
     const story = {
         1: {

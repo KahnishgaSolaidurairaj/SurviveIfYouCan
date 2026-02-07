@@ -29,7 +29,7 @@ function Start() {
     "Terrified, your friend bolted into the darkness of the Haunted House. \n\n" +
     "They left you.\n\n" +
     "You could hide... but you promised to stick together.\n\n" +
-    "Can you surive this?."
+    "Can you surive this?"
 
   return (
     <div className="scene start-scene">

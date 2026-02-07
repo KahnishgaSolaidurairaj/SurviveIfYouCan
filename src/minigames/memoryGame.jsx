@@ -130,7 +130,7 @@ export default function MemoryGame(){
                             <button
                                 onClick={ continueClicked}
                             >
-                                Continue
+                                ← go back
                             </button>
                         )}
                     </div>

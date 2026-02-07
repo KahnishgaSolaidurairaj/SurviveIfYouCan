@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import Typewriter from "../components/Typewriter.jsx";
 
 export default function AfterJumpScare() {
     const [stage, setStage] = useState(1);
@@ -14,7 +16,7 @@ export default function AfterJumpScare() {
 
     const current = story[stage];
 
-    const continueClicked = async () => {
+    const continueForward = async () => {
         navigate('/choice4')
     }
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Typewriter from "../components/Typewriter.jsx";
+import "../App.css";
 
 export default function Choice2(){
 
@@ -23,8 +24,8 @@ export default function Choice2(){
         1: {
             text: "You hear a noise from the left door.\n\nWhich door are you going through?",
             choices: [
-            { label: "A. Left", next: 7 },
-            { label: "B. Right", next: 8 }
+            { id: "left", label: "LEFT", next: 7, img: "/images/door_left.png" },
+            { id: "right", label: "RIGHT", next: 8, img: "/images/door_right.png" }
             ]
         },
 
@@ -46,7 +47,6 @@ export default function Choice2(){
             rightDoorChosen();
         }
     }, [stage]);
-
 
     const continueClicked = async () => {
         navigate('/choice2')
@@ -72,6 +72,12 @@ export default function Choice2(){
                                     setStage(choice.next);
                                 }}
                                 >
+                                {/* The Image */}
+                                <img 
+                                    src={choice.img} 
+                                    alt={choice.label} 
+                                    className="door-img" 
+                                />
                                 {choice.label}
                             </button>
                     ))}

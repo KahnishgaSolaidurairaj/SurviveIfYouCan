@@ -24,7 +24,7 @@ export default function MemoryGame(){
         },
 
         2: {
-            text: "A. Game Completed! Go back and choose again",
+            text: "Game Completed! Go back and choose again",
         }
     }
 
@@ -109,10 +109,19 @@ export default function MemoryGame(){
         setDisableAll(false);
     };
 
+   const allMatched = cards.every(card => card.matched);
+
+    useEffect(() => {
+        if (stage === 1 && allMatched) {
+            setStage(2);
+            setTextDone(false);          
+        }                              
+    }, [allMatched, stage]);
+
     return(
         <div>
             <div>
-                {(stage === 1 || allMatched) && (
+                {(stage === 1 || stage === 2) && (
                     <Typewriter
                             key={stage}
                             text={current.text}
@@ -132,7 +141,7 @@ export default function MemoryGame(){
             </div>
                 {textDone && (
                     <div className="choices">
-                        { stage === 1 &&
+                        {/* { stage === 1 &&
                             current.choices.map((choice, index) => (
                                 <button
                                     key={index}
@@ -143,8 +152,9 @@ export default function MemoryGame(){
                                     >
                                     {choice.label}
                                 </button>
-                        ))}
-                        {stage !== 1 && cards.every(card => card.matched) && textDone && (
+                        ))} */}
+
+                        {stage === 2 && textDone && (
                             <button
                                 onClick={ continueClicked}
                             >

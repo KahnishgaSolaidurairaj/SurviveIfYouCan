@@ -70,7 +70,7 @@ export default function Choice1(){
 
                             {stage !== 1 && textDone && (
                                 <button
-                                    onClick={ continueClicked}
+                                    onClick={continueClicked}
                                 >
                                     Continue
                                 </button>

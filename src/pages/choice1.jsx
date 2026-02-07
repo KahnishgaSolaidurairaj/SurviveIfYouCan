@@ -1,7 +1,7 @@
 import Typewriter from "../components/Typewriter.jsx";
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
-import "../App.css"; // Ensure CSS is imported for scene-bg
+import "../App.css";
 
 export default function Choice1(){
     const navigate = useNavigate();
@@ -11,8 +11,7 @@ export default function Choice1(){
     const story = {
         1: {
             text: "You have reached your first obstacle: A character is standing in front of you. How will you pass this obstacle?\n",
-            // FIXED: changed "images" to "image"
-            background: { type: "image", src: "/images/ghost2.jpg" },
+            background: { type: "image", src: "/images/ghost2.png" },
             choices: [
             { label: "A. Give them money", next: 2 },
             { label: "B. Scare them", next: 3 },
@@ -22,7 +21,6 @@ export default function Choice1(){
         
         2: { 
             text: "They accept the money. You got lucky.", 
-            // FIXED: changed "videos" to "video"
             background: {type: "video", src: "/videos/hallway.mp4"}
         },
         3: { 
@@ -44,34 +42,25 @@ export default function Choice1(){
     const continueClicked = async () => {
         navigate('/choice2')
     }
-
   return (
     <div className="scene choice-scene">
-
-      {/* Background Image Handler */}
       {current.background?.type === "image" && (
         <img
-          key={current.background.src} // Add key to force reload on change
           className="scene-bg"
           src={current.background.src}
-          alt="Scene Background"
+          alt="ghost"
         />
       )}
 
-      {/* Background Video Handler */}
       {current.background?.type === "video" && (
         <video
-          key={current.background.src} // Add key to force reload on change
           className="scene-bg"
           src={current.background.src}
           autoPlay
           loop
           muted
-          playsInline
         />
       )}
-
-      {/* Overlay content */}
       <div className="scene-content">
         <Typewriter
           key={stage}
@@ -79,7 +68,6 @@ export default function Choice1(){
           onComplete={() => setTextDone(true)}
         />
 
-        {/* Show choices only on Stage 1 */}
         {textDone && stage === 1 && (
           <div className="choices">
             {current.choices.map((choice, index) => (
@@ -97,13 +85,9 @@ export default function Choice1(){
           </div>
         )}
 
-        {/* Show Continue button on other stages */}
         {stage !== 1 && textDone && (
-            <div className="choices">
-                <button onClick={continueClicked}> Continue </button>  
+            <button onClick={continueClicked} > Continue </button>  )}
             </div>
-        )}
-      </div>
-    </div>
+        </div>
     );
 }

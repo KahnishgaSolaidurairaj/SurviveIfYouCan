@@ -84,9 +84,9 @@ body::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.3; 
+  opacity: 0.6; 
   z-index: 0;
-  filter: sepia(40%) contrast(110%) brightness(80%); 
+  /* filter: sepia(40%) contrast(110%) brightness(80%);  */
 }
 
 .scene-content {
@@ -215,19 +215,18 @@ button:active {
   transition: transform 0.2s;
 }
 
-/* Make images BIGGER */
 .door-img {
-  width: 400px;  /* Changed from 150px to 300px */
-  height: 550px; /* Changed from 250px to 450px */
+  width: 400px;  
+  height: 550px; 
   object-fit: cover;
   border: 4px solid #333;
   box-shadow: 0 10px 20px rgba(0,0,0,0.8);
   transition: all 0.3s ease;
-  filter: grayscale(80%) brightness(60%);
+  /* filter: grayscale(80%) brightness(60%); */
 }
 
 .door-btn:hover .door-img {
-  filter: grayscale(0%) brightness(110%);
+  /* filter: grayscale(0%) brightness(110%); */
   border-color: var(--highlight);
   box-shadow: 0 0 30px var(--highlight);
   transform: scale(1.05);
@@ -236,7 +235,7 @@ button:active {
 .door-label {
   margin-top: 1rem;
   font-family: var(--font-header);
-  font-size: 3rem; /* Bigger font */
+  font-size: 3rem; 
   color: #666;
   text-shadow: 2px 2px 0 #000;
   transition: color 0.3s;

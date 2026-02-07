@@ -25,7 +25,11 @@ export default function Choice3(){
         },
         3: {
             text: "Take a closer look at where the scarf is . . .",
-        },
+                choices: [
+                    { label: "A. Up", next: 2 },
+                    { label: "B. Down", next: 3 }
+                ]
+            },
     }
 
     const current = story[stage];
@@ -52,9 +56,23 @@ export default function Choice3(){
                                     setStage(choice.next);
                                 }}
                                 >
+                            {choice.label}
                             </button>
                     ))}
-                    
+
+                    { stage === 3 &&
+                        current.choices.map((choice, index) => (
+                            <button
+                                key={index}
+                                onClick={() => {
+                                    setTextDone(false);
+                                    setStage(choice.next);
+                                }}
+                                >
+                            {choice.label}
+                            </button>
+                    ))}
+
                     {stage === 2 && textDone && (
                         <button
                             onClick={upStairsChosen}
@@ -62,15 +80,6 @@ export default function Choice3(){
                             Continue
                         </button>
                     )}
-
-                    {/* {stage === 3 && textDone && (
-                        <button
-                            onClick={downStairsChosen}
-                        >
-                            Continue
-                        </button>
-                    )} */}
-
                 </div>
             )}
         </div>

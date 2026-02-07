@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Typewriter from "../components/Typewriter"
 import "../App.css"
@@ -7,6 +7,24 @@ export default function EndScreen() {
   const navigate = useNavigate()
   const [stage, setStage] = useState(1)
   const [textDone, setTextDone] = useState(false)
+
+  useEffect(() => {
+      const screamAudio = new Audio("/audios/endingSound.mp3")    
+      screamAudio.volume = 0.6 
+  
+      // Play the audio
+      screamAudio.play().catch((error) => {
+      // This catches errors if the browser blocks autoplay
+      console.log("Audio autoplay blocked:", error)
+      })
+
+      // Cleanup: Stop sound if user leaves page quickly
+      return () => {
+      screamAudio.pause()
+      screamAudio.currentTime = 0
+      }
+  }, [])
+
 
   const story = {
     1: {
@@ -62,12 +80,6 @@ export default function EndScreen() {
               </button>
             ))}
           </div>
-        )}
-
-        {textDone && stage === 2 && (
-             <div className="choices">
-                 <p style={{marginTop: '20px', color: '#666'}}>( End of Demo )</p>
-             </div>
         )}
       </div>
     </div>

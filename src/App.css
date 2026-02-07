@@ -40,3 +40,25 @@
 .read-the-docs {
   color: #888;
 }
+
+.fullscreen {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.video-bg {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+  text-shadow: 0 0 10px black;
+}

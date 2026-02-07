@@ -1,21 +1,21 @@
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, useNavigate } from 'react-router-dom'
 import Start from './pages/start.jsx'
+import IntroCutScene from './scenes/cutscenes/IntroCutScene'
 import './App.css'
 
 function App() {
+  const navigate = useNavigate()
+
   return (
     <>
       <Routes>
-        <Route path = "/" element = {
-          <>
-            <h1>Survive If You Can . . .</h1>
-            <div className = "card">
-              <Link to="/start">
-                <button> Start Your Story (opens to a new page) </button>
-              </Link>
-            </div>
-          </>
-        }></Route>
+        <Route
+          path="/"
+          element={
+            <IntroCutScene onFinish={() => navigate('/start')} />
+          }
+        />
+
         <Route path="/start" element={<Start />} />
       </Routes>
     </>

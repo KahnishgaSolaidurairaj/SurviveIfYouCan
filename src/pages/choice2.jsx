@@ -53,6 +53,7 @@ export default function Choice2(){
     }
 
     return(
+        <div className="scene choice-scene">
         <div>
              {(stage === 1 || stage === 7) && (
              <Typewriter
@@ -92,6 +93,7 @@ export default function Choice2(){
                     )}
                 </div>
             )}
+        </div>
         </div>
     )
 }

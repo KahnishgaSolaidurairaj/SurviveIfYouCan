@@ -35,7 +35,7 @@ export default function Choice3(){
     const current = story[stage];
        
     const upStairsChosen = async () => {
-        navigate('/choice4')
+        navigate('/jumpScare')
     }
 
     return(

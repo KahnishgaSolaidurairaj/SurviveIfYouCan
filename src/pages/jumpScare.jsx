@@ -7,16 +7,14 @@ export default function Jumpscare() {
   return (
    
     <div>
-        {/* {current.background?.type === "video" && ( */}
         <video
-        //   className="scene-bg"
-          src="/videos/jumpScareVid.mp4"
-          autoPlay
-          muted
-          style={{ width: "100vw", height: "100vh", background: "black" }}
-          onEnded={() => navigate("/afterJumpScare")}
-        />
-    {/* //   )} */}
+        className="scene-bg"
+        src="/videos/jumpScareVid.mp4" 
+        autoPlay
+        muted
+        playsInline 
+        onEnded={() => navigate('/afterJumpScare')}
+      />
     </div>
   );
 }

@@ -33,14 +33,12 @@ export default function EndScreen() {
   }
 
   return (
-    <div className="scene end-scene">
-      
-      {/* BACKGROUND VIDEO */}
+    <div className="scene end-scene">      
       <video
         className="scene-bg"
         src="/videos/ending_clown.mp4" 
         autoPlay
-        loop       // <--- Keeps playing forever as a background
+        loop       
         muted
         playsInline 
       />

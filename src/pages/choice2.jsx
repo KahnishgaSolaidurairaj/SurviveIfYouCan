@@ -41,17 +41,26 @@ export default function Choice2(){
 
     const current = story[stage];
 
+    useEffect(() => {
+        if (stage === 8) {
+            rightDoorChosen();
+        }
+    }, [stage]);
+
+
     const continueClicked = async () => {
         navigate('/choice2')
     }
 
     return(
         <div>
+             {(stage === 1 || stage === 7) && (
              <Typewriter
                     key={stage}
                     text={current.text}
                     onComplete={() => setTextDone(true)}
             />  
+             )}
             {textDone && (
                 <div className="choices">
                     { stage === 1 &&
@@ -70,14 +79,6 @@ export default function Choice2(){
                     {stage === 7 && textDone && (
                         <button
                             onClick={leftDoorChosen}
-                        >
-                            Continue
-                        </button>
-                    )}
-
-                     {stage === 8 && !textDone(
-                        <button
-                            onClick={rightDoorChosen}
                         >
                             Continue
                         </button>

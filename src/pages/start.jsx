@@ -7,14 +7,10 @@ function Start() {
   const navigate = useNavigate()
   const [textDone, setTextDone] = useState(false)
 
-  // 2. Play the sound when the scene loads
   useEffect(() => {
-    // Create the audio object
-    const screamAudio = new Audio("/audios/scream.mp3")
-    
-    // Optional: Lower volume so you don't blow out speakers (0.0 to 1.0)
+    const screamAudio = new Audio("/audios/scream.mp3")    
     screamAudio.volume = 0.6 
-    
+  
     // Play the audio
     screamAudio.play().catch((error) => {
       // This catches errors if the browser blocks autoplay

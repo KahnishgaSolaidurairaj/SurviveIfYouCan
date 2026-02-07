@@ -23,7 +23,9 @@ export default function MemoryGame(){
             ]
         },
 
-        2: 
+        2: {
+            text: "A. Game Completed! Go back and choose again",
+        }
     }
 
     const shuffledColors = [...colors, ...colors].sort(() => Math.random() - 0.5);
@@ -110,11 +112,13 @@ export default function MemoryGame(){
     return(
         <div>
             <div>
-               <Typewriter
-                    key={stage}
-                    text={current.text}
-                    onComplete={() => setTextDone(true)}
-            />  
+                {(stage === 1 || allMatched) && (
+                    <Typewriter
+                            key={stage}
+                            text={current.text}
+                            onComplete={() => setTextDone(true)}
+                    />  
+                )}
             </div>     
             <div className="memory-game">
                 {cards.map((card) => (
@@ -140,7 +144,7 @@ export default function MemoryGame(){
                                     {choice.label}
                                 </button>
                         ))}
-                        {stage === 1 && cards.every(card => card.matched) && textDone && (
+                        {stage !== 1 && cards.every(card => card.matched) && textDone && (
                             <button
                                 onClick={ continueClicked}
                             >

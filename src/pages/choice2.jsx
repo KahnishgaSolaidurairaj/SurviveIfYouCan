@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+// import Typewriter from "../components/Typewriter.jsx";
 
 export default function Choice2(){
 

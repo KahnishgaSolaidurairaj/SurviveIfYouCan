@@ -48,6 +48,7 @@ export default function Choice2(){
 
         7: {
             text: "Left is the correct choice. You move deeper into the haunted house.",
+            background: { type: "video", src: "/videos/door_opening.mp4" },
         },
 
         8: {
@@ -87,13 +88,33 @@ export default function Choice2(){
 
     return(
         <div className="scene choice-scene">
+            {current.background?.type === "video" && (
+            <video
+          className="scene-bg"
+          src={current.background.src}
+          autoPlay
+          loop
+          muted />
+      )}
         <div>
-             {(stage === 1 || stage === 7) && (
+             {(stage === 1) && (
              <Typewriter
                     key={stage}
                     text={current.text}
                     onComplete={() => setTextDone(true)}
             />  
+             )}
+             {(stage === 7) && (
+                <div className="scene-content">
+                <Typewriter
+                    key={stage}
+                    text={current.text}
+                    onComplete={() => setTextDone(true)}
+            />
+            {stage === 7 && textDone && (
+                        <button onClick={leftDoorChosen} > Continue </button>
+                    )}
+            </div>
              )}
             {textDone && (
                 <div className="door-container">
@@ -116,14 +137,6 @@ export default function Choice2(){
                                 <span className="door-label">{choice.label}</span>
                             </button>
                     ))}
-
-                    {stage === 7 && textDone && (
-                        <button
-                            onClick={leftDoorChosen}
-                        >
-                            Continue
-                        </button>
-                    )}
                 </div>
             )}
         </div>

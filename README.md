@@ -1,16 +1,11 @@
-# React + Vite
+# Survive if you can . . . 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Survive if you can is an interactive, narrative-driven horror game built with React.
+The player navigates a haunted house, making choices that affect the story and determine the ending.
+The game follows a choose-your-own-adventure structure, where suspense, moral decisions, and atmosphere are central to the experience.
 
-Currently, two official plugins are available:
+Game Context: You and your friends enter a haunted house. They panic and run ahead, leaving you behind. Instead of escaping, you decide to search for them knowing every decision could lead you deeper into danger.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Will you abandon your friend to survive . . . or risk everything to find them?
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Created by: Kahnishga, Harini, Aleena, and Dana

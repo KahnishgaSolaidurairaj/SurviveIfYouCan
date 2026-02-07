@@ -11,6 +11,7 @@ export default function AfterJumpScare() {
     const story = {
         1: {
             text: "Did that scare you ;) hehehehe. Continue forward if you dare...",
+            background: {type: "image", src: "/images/scare.jpg" }
         },
     }
 
@@ -22,18 +23,25 @@ export default function AfterJumpScare() {
 
     return (
         <div>
-            <Typewriter
-                key={stage}
-                text={current.text}
-                onComplete={() => setTextDone(true)}
-            />  
-            {textDone && (
-                <button
-                    onClick={continueForward}
-                >
-                    Continue
-                </button>
-            )}
+            <div className="scene choice-scene">
+                {current.background?.type === "image" && (
+                <img
+                    className="scene-bg"
+                    src={current.background.src}
+                    alt="ghost"
+                />
+                )}
+                <div className="scene-content">
+                    <Typewriter
+                        key={stage}
+                        text={current.text}
+                        onComplete={() => setTextDone(true)}
+                    />  
+                    {textDone && (
+                    <button onClick={continueForward}> Continue </button>
+                    )}
+                </div>
+            </div>
         </div>
     );
 }

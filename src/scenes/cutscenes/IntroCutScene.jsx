@@ -18,8 +18,7 @@ export default function IntroCutScene({ onFinish }) {
       />
 
       <div className="overlay-text">
-        <h1>Survive If You Can</h1>
-        <p>Your friends ran ahead. You didn't.</p>
+        <h1>Survive if you can . . .</h1>
       </div>
     </div>
   )

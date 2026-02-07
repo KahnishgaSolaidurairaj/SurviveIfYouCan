@@ -40,3 +40,31 @@
 .read-the-docs {
   color: #888;
 }
+
+.typewriter {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.choices button {
+  padding: 12px 20px; 
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.choices button:hover {
+  transform: translateY(-2px);
+  transition: 0.2s ease;
+}
+
+.choices button:active {
+  transform: translateY(0);
+}

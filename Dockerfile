@@ -14,5 +14,5 @@ COPY . .
 # Expose port
 EXPOSE 5173
 
-# Start the development server
-CMD ["npm", "run", "dev"]
+# Start the development server with remote access enabled
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]

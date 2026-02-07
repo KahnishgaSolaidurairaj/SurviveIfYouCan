@@ -88,15 +88,8 @@ export default function Choice1(){
           </div>
         )}
 
-                            {stage !== 1 && textDone && (
-                                <button
-                                    onClick={continueClicked}
-                                >
-                                    Continue
-                                </button>
-                            )}
-                        </div>
-                    )}
+        {stage !== 1 && textDone && (
+            <button onClick={continueClicked} > Continue </button>  )}
             </div>
         </div>
     );
